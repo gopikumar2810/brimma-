@@ -1,0 +1,42 @@
+<html>
+  <head>
+     <title> d</title>  
+     <link rel = "stylesheet" href= "datetimepicker-master/build/jquery.datetimepicker.min.css">
+     <script src = "datetimepicker-master/jquery.js"></script>
+     <script src = "datetimepicker-master/build/jquery.datetimepicker.full.js"></script>
+  </head>
+    <body>
+      <h2> Differene between two dates</h2>
+        <label> enter the first date </label>
+      <input id = "date1">  <br> <br>
+      <label> enter the second date </label>
+      <input id = "date2"> <br> <br>
+        <button onclick="calcDiff()"> calculate difference</button>
+        
+        <script>
+           $("#date1").datetimepicker({
+               timepicker:false,
+               format : 'Y-m-d' 
+           });
+           
+           $("#date2").datetimepicker({
+               timepicker:false,
+               format : 'Y-m-d' 
+           });
+           
+           function calcDiff() {
+               var date1 = new Date($("#date1").val());
+               var date2 = new Date($("#date2").val());
+               
+               var timeDifference = date2.getTime() - date1.getTime();
+               
+               var milli = 1000;
+               var sec = 3600;
+               var hr = 24;
+               
+               var daysDiff = timeDifference / (milli * sec * hr);
+               alert(daysDiff);
+           }
+        </script>
+    </body>
+</html>
